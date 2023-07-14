@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend"
   ],
-  "SelectedNode": "\\C:\\Users\\HP\\Source\\Repos\\Rck-Ads-Platform",
+  "SelectedNode": "\\backend\\app.js",
   "PreviewInSolutionExplorer": false
 }
