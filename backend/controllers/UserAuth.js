@@ -40,10 +40,9 @@ const createToken = (id) => {
         expiresIn: maxAge
         })
 }
-//  sign up user
-const getSignupUser = (req, res) => { }
 
-// save Users sign up details to the database
+
+// sign up and save users details to the database
 const postSignupUser = async (req, res) => {
     const { username, email, password } = req.body
     try {
@@ -60,12 +59,10 @@ const postSignupUser = async (req, res) => {
     }
 }
 
-//  log in user
-const getLoginUser = (req, res) => { }
 
-// authenticate current user details against the database
+// login and authenticate current user details on the database
 const postLoginUser = async (req, res) => {
-    const { email, password }
+    const { email, password } = req.body
     // using the login static method to login the user
     try {
         const user = User.login(email, password)
@@ -77,15 +74,14 @@ const postLoginUser = async (req, res) => {
     }
 }
 
+// logout user
 const logoutUser = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 })
     res.redirect('/')
 }
 
 module.exports = {
-    getSignupUser,
     postSignupUser,
-    getLoginUser,
     postLoginUser,
     logoutUser
 }

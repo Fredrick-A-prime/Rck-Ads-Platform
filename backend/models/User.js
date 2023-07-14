@@ -23,6 +23,10 @@ const UserSchema = new Schema({
         required: [true, 'please enter your password'],
         minlength: [8, 'password can not be less than 8 characters'],
         validator: [isStrongPassword, 'please enter a strong password']
+    },
+    profile: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
     }
 })
 // hooks to write on the console before an action on the database is performed
@@ -38,7 +42,7 @@ UserSchema.pre('save', async function (next) {
     next()
 })
 // static method to login user
-userSchema.static.login = async function (username, email, password) {
+UserSchema.static.login = async function (username, email, password) {
     const user = await this.findOne({ email })
     // check if email exists
     if (user) {

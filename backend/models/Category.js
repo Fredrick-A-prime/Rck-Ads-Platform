@@ -5,12 +5,15 @@ const categorySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    parentCategory: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        default: null
+    description: {
+        type: String,
+        required: true,
+    },
+},
+    {
+        timestamps: true
     }
-});
+);
 
 const Category = mongoose.model('Category', categorySchema);
 

@@ -4,6 +4,7 @@ const { createProfile, getProfileInfo, updateProfileInfo } = require('../control
 
 router.post('/api/profile', createProfile)
 router.get('/api/profile', getProfileInfo)
-router.put('/api/profile', updateProfileInfo)
+router.put('/api/profile/:id', updateProfileInfo)
+router.delete('/api/profile/delete' )
 
 module.exports = router
